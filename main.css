@@ -32,8 +32,8 @@ h1 {
 }
 
 .container {
-    width: 52rem;
-    height: 27rem;
+    width: 55rem;
+    height: 30rem;
     padding: 1rem;
     background-color: var(--White);
     border-radius: .5rem;
@@ -66,6 +66,7 @@ input {
 } 
 
 input {
+    height: 3rem;
     padding: .6rem;
     font-size: 1.5rem;
     color: var(--Very-dark-cyan);
@@ -88,7 +89,7 @@ input::placeholder {
 }
 
 .container .calculate .bill {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .container .calculate .bill p {
@@ -107,7 +108,7 @@ input::placeholder {
 }
 
 .container .calculate .tip-selection {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .container .calculate .tip-selection p {
@@ -127,15 +128,22 @@ input::placeholder {
 }
 
 .container .calculate .percentage button {
-    font-size: 1.5rem;
+    height: 3rem;
     padding: .4rem 0;
     background-color: var(--Very-dark-cyan);
+    font-size: 1.5rem;
     color: var(--White);
     border: none;
     border-radius: .3rem;
 }
 
+.container .calculate .percentage button.active {
+    color: var(--Very-dark-cyan);
+    background-color: var(--Strong-cyan);
+}
+
 .container .calculate .percentage input {
+    height: 3rem;
     padding-top: .5rem;
     background-color: var(--Very-light-grayish-cyan);
     outline: none;
@@ -149,8 +157,15 @@ input::placeholder {
     color: var(--Dark-grayish-cyan);
 }
 
-.container .calculate .number-of-people p {
+.container .calculate .number-of-people > div {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: .5rem;
+}
+
+.container .calculate .number-of-people .zero {
+    color: red;
+    display: none;
 }
 
 .container .calculate .number-of-people input {
@@ -191,11 +206,11 @@ input::placeholder {
 }
 
 .container .result .tip-amount {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .container .result .total {
-    margin-bottom: 8rem;
+    margin-bottom: 9rem;
 }
 
 .container .result button {
@@ -213,7 +228,7 @@ input::placeholder {
 .container .calculate .bill input:focus,
 .container .calculate .tip-selection .percentage input:focus,
 .container .calculate .number-of-people input:focus {
-    border: 0.125rem solid var(--Strong-cyan)
+    border: 0.125rem solid var(--Strong-cyan);
 }
 
 @media(hover: hover) {
@@ -222,15 +237,16 @@ input::placeholder {
         cursor: pointer;
     }
 
+    .container .calculate .tip-selection .percentage button:hover {
+        background-color: var(--Light-grayish-cyan);
+        color: var(--Very-dark-cyan); 
+    }
+
     .container .result button:hover {
         opacity: 1;
         background-color: var(--Light-grayish-cyan);
     }
 
-    .container .calculate .tip-selection .percentage button:hover {
-        background-color: var(--Strong-cyan);
-        color: var(--Very-dark-cyan)
-    }
 }
 
 @media(max-width: 875px) {
@@ -269,6 +285,10 @@ input::placeholder {
     .container {
         width: 22rem;
     }
+
+    .container .calculate .percentage input::placeholder {
+        font-size: 1rem;
+    }
     
 }
 
@@ -280,6 +300,10 @@ input::placeholder {
 
     .container .calculate .percentage > * {
         width: calc((100% - 1rem) / 2);
+    }
+
+    .container .calculate .percentage input::placeholder {
+        font-size: 1.4rem;
     }
 
     .container .result .tip-amount {
