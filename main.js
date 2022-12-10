@@ -25,6 +25,7 @@ percentage.forEach(ele => {
                     numberOfPeople.style.border = "none";
                     tipAmount.innerText = (bill.value / numberOfPeople.value * parseFloat(e.target.innerText) / 100).toFixed(2);
                     total.innerText = (bill.value / numberOfPeople.value + parseFloat(tipAmount.innerText)).toFixed(2);
+                    custom.value = "";
                     reset.style.opacity = "1";
                 }
             }
